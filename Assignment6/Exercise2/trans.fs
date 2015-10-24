@@ -5,7 +5,8 @@ type sym =
     | SChar of char
     
 type nfa =
-    { start  : state;
+    { 
+        start  : state;
         accept : state;
         trans  : (state * sym * state) list
     }
