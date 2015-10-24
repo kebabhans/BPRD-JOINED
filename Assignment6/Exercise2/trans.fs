@@ -1,7 +1,7 @@
 type state = int
 
 type sym = 
-    SEps 
+      SEps 
     | SChar of char
     
 type nfa =
