@@ -13,7 +13,7 @@
 %left STAR
 
 %start Main
-%type <Absyn.re> Main RegExp
+%type <Absyn.re> Main RegExpr
 %%
 
 Main:
