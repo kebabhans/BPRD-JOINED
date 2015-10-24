@@ -10,10 +10,9 @@ let lexemeAsString lexbuf =
 }
 
 rule Token = parse
-   | [' ' '\t' '\r'] { Token lexbuf }
-   | '\n'            { lexbuf.EndPos <- lexbuf.EndPos.NextLine; Token lexbuf }
-   | ['a'-'z''A'-'Z''0'-'9'] 
-                     { CHAR ((lexemeAsString lexbuf).[0]) }
+   | [' ']           { SPACE }
+   | [''']['a'-'z''A'-'Z''0'-'9'][''']
+                     { CHAR (lexemeAsString lexbuf).[1] }
    | '*'             { STAR }
    | '|'             { CHOICE }
    | '('             { LPAR }

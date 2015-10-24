@@ -6,6 +6,7 @@
 
 %token EPS
 %token STAR
+%token SPACE
 %token CHOICE
 %token LPAR RPAR 
 
@@ -17,11 +18,12 @@
 %%
 
 Main:
-  RegExpr EPS             { $1             }
+  RegExpr EPS               { $1             }
 ;
 
 RegExpr:
-    RegExpr RegExpr        	{ Seq($1, $2)    }
+    SPACE RegExpr           { $2             }
+  | RegExpr RegExpr        	{ Seq($1, $2)    }
   | CHAR                  	{ Char($1)       }
   | LPAR RegExpr RPAR     	{ $2             }
   | RegExpr CHOICE RegExpr  { Choice($1, $3) }

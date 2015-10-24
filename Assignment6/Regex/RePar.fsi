@@ -4,6 +4,7 @@ type token =
   | LPAR
   | RPAR
   | CHOICE
+  | SPACE
   | STAR
   | EPS
   | CHAR of (char)
@@ -11,6 +12,7 @@ type tokenId =
     | TOKEN_LPAR
     | TOKEN_RPAR
     | TOKEN_CHOICE
+    | TOKEN_SPACE
     | TOKEN_STAR
     | TOKEN_EPS
     | TOKEN_CHAR

@@ -10,7 +10,7 @@ open Absyn
 
 (* Plain parsing from a string, with poor error reporting *)
 
-let fromString (str : string) : re =
+let parse (str : string) : re =
     let lexbuf = (*Lexing. insert if using old PowerPack *)LexBuffer<char>.FromString(str)
     try 
       RePar.Main ReLex.Token lexbuf
