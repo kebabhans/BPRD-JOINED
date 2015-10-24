@@ -17,12 +17,12 @@
 %%
 
 Main:
-  RegExpr EOF             { $1             }
+  RegExpr EPS             { $1             }
 ;
 
 RegExpr:
-    RegExrp RegExp        	{ Seq($1, $2)    }
-  | CHAR                  	{ $1             }
+    RegExpr RegExpr        	{ Seq($1, $2)    }
+  | CHAR                  	{ Char($1)       }
   | LPAR RegExpr RPAR     	{ $2             }
   | RegExpr CHOICE RegExpr  { Choice($1, $3) }
   | RegExpr STAR           	{ Star($1)       }
