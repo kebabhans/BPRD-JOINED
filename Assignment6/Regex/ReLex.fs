@@ -8,7 +8,7 @@ open RePar
 
 let lexemeAsString lexbuf =
     LexBuffer<char>.LexemeString lexbuf
-
+	
 # 12 "ReLex.fs"
 let trans : uint16[] array = 
     [| 

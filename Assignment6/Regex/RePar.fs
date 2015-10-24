@@ -123,7 +123,7 @@ let _fsyacc_reductions ()  =    [|
                 (
                    (
 # 21 "RePar.fsy"
-                                                   _1             
+                                                  _1             
                    )
 # 21 "RePar.fsy"
                  : Absyn.re));
@@ -134,7 +134,7 @@ let _fsyacc_reductions ()  =    [|
                 (
                    (
 # 25 "RePar.fsy"
-                                                   _2             
+                                           _2			 
                    )
 # 25 "RePar.fsy"
                  : Absyn.re));
@@ -146,7 +146,7 @@ let _fsyacc_reductions ()  =    [|
                 (
                    (
 # 26 "RePar.fsy"
-                                                   Seq(_1, _2)    
+                                                   Seq(_1, _2)	 
                    )
 # 26 "RePar.fsy"
                  : Absyn.re));
@@ -157,7 +157,7 @@ let _fsyacc_reductions ()  =    [|
                 (
                    (
 # 27 "RePar.fsy"
-                                                  Char(_1)       
+                                                  Char _1	     
                    )
 # 27 "RePar.fsy"
                  : Absyn.re));

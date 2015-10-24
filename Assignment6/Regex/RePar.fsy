@@ -8,7 +8,7 @@
 %token STAR
 %token SPACE
 %token CHOICE
-%token LPAR RPAR SPACE
+%token LPAR RPAR
 
 %nonassoc CHOICE
 %left STAR
