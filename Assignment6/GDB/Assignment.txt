@@ -1,0 +1,23 @@
+EXERCISE 6.3: Debugging with GDB (1 point)
+
+The task is:
+ * Create at least 3 separate test functions to test `nats`,
+  `print_list` and `free_list`.
+
+ * Each function has an error, i.e., 3 in total. Use the debugger to
+   find the errors, then describe the type of errors and give
+   suggestions on how to fix them. You must hand in a print of your
+   debug sessions and write a paragraph about how you used the
+   debugger to find each error.
+
+   Hint: You must use the debugger to do this, even though, you could
+   have identified the errors without it.
+
+ * When you run 'fbinfer' on the code, you get the warning below. You
+   must explain why this warning is shown and how to avoid it.
+
+   ...
+   exercise.c:14: error: NULL_DEREFERENCE
+     pointer this last assigned on line 13 could be null and is dereferenced at line 14, column 3
+   ...
+
