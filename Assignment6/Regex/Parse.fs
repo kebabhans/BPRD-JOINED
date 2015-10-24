@@ -11,9 +11,9 @@ open Absyn
 (* Plain parsing from a string, with poor error reporting *)
 
 let fromString (str : string) : expr =
-    let lexbuf = (*Lexing. insert if using old PowerPack *)LexBuffer<char>.FromString(str)
+    let lexbuf = LexBuffer<char>.FromString(str)
     try 
-      FunPar.Main FunLex.Token lexbuf
+      RePar.Main ReLex.Token lexbuf
     with 
       | exn -> let pos = lexbuf.EndPos 
                failwithf "%s near line %d, column %d\n" 
