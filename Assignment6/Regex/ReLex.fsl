@@ -12,4 +12,11 @@ let lexemeAsString lexbuf =
 rule Token = parse
    | [' ' '\t' '\r'] { Token lexbuf }
    | '\n'            { lexbuf.EndPos <- lexbuf.EndPos.NextLine; Token lexbuf }
+   | ['a'-'z''A'-'Z''0'-'9'] 
+                     { CHAR (lexemeAsString lexbuf) }
+   | '*'             { STAR }
+   | '|'             { CHOICE }
+   | '('             { LPAR }
+   | ')'             { RPAR }
+   | eof             { EPS }
    | _               { failwith "Lexer error: illegal symbol" }
