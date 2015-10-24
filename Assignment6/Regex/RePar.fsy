@@ -6,6 +6,7 @@
 
 %token EPS
 %token STAR
+%token SPACE
 %token CHOICE
 %token LPAR RPAR SPACE
 
