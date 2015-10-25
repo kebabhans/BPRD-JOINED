@@ -1,0 +1,9 @@
+EXERCISE 6.2: Closed Expression (1 point)
+
+Do exercise 6.6 in PLC:
+
+Exercise 6.6:
+Write an F# function “check : expr -> bool” that checks that all variables and function names are defined when they are used, and returns true if they are. 
+This checker should accept the micro-ML higher-order language. 
+That is, in the abstract syntax ‘Call(e1, e2)’ for a function call, the expression ‘e1’ can be an arbitrary expression and need not be a variable name.
+The ‘check’ function needs to carry around an environment to know which variables are bound. This environment may just be a list of the bound variables.
