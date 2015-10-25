@@ -1,0 +1,30 @@
+
+The line "free(l->tail);" tries to freeze a pointer that's not existing. By trying to free l->tail when l is nil, a segmentation fault will occur.
+
+
+-- OUTPUT: --
+Breakpoint 1 at 0x40072a: file exercise.c, line 44.
+Starting program: /home/anders/Desktop/GDB/exercise 
+
+Breakpoint 1, free_list (l=0x602030) at exercise.c:44
+44		while (is_cons(l)) {
+$1 = {head = 2, tail = 0x602010}
+45			free(l);
+46			l = l->tail;
+$2 = {head = 0, tail = 0x602010}
+44		while (is_cons(l)) {
+$3 = {head = 1, tail = 0x0}
+45			free(l);
+46			l = l->tail;
+$4 = {head = 6299680, tail = 0x0}
+44		while (is_cons(l)) {
+Cannot access memory at address 0x0
+48		free(l->tail);
+
+Program received signal SIGSEGV, Segmentation fault.
+0x0000000000400758 in free_list (l=0x0) at exercise.c:48
+48		free(l->tail);
+Continuing.
+
+Program terminated with signal SIGSEGV, Segmentation fault.
+The program no longer exists.

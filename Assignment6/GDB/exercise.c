@@ -58,15 +58,17 @@ void test1() {
 }
 
 void test2() {
-	// fill in ...
+	list *test2 = nats(3);
 }
 
 void test3() {
-	// fill in ...
+	list *test3 = nats(3);
+	print_list(test3);
 }
 
 void test4() {
-	// fill in ...
+	list *test4 = nats(3);
+	free_list(test4);
 }
 
 int main(int argc, const char *argv[])

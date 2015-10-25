@@ -1,0 +1,40 @@
+
+The last element in the list will always be a pointer to null when using nats. Furthermore, calling nats several times in a row and storing the result in the same list pointer will append the new nats-result to the previous result.
+GDB was used to demonstrate this. Printing the tail of *l shows that the last tail is null. Furthermore the *res pointer points back to the first element of the "old" list when executing nats again. 
+
+
+-- OUTPUT: --
+Breakpoint 1 at 0x40068e: file exercise.c, line 22.
+Starting program: /home/anders/Desktop/GDB/exercise 
+
+Breakpoint 1, nats (max=2) at exercise.c:22
+22		if (max <= 0) {
+28			for (i = 0; i < max; i++) {
+$1 = 2
+29				res = cons(i + 1, res);
+$2 = 0
+28			for (i = 0; i < max; i++) {
+$3 = {head = 1, tail = 0x0}
+29				res = cons(i + 1, res);
+28			for (i = 0; i < max; i++) {
+$4 = {head = 2, tail = 0x602010}
+$5 = 1
+31			return res;
+$6 = {head = 2, tail = 0x602010}
+$7 = {head = 1, tail = 0x0}
+Cannot access memory at address 0x0
+Continuing.
+
+Breakpoint 1, nats (max=1) at exercise.c:22
+22		if (max <= 0) {
+28			for (i = 0; i < max; i++) {
+29				res = cons(i + 1, res);
+$8 = {head = 2, tail = 0x602010}
+28			for (i = 0; i < max; i++) {
+$9 = {head = 1, tail = 0x602030}
+$10 = {head = 2, tail = 0x602010}
+31			return res;
+$11 = {head = 1, tail = 0x602030}
+33	}
+Continuing.
+[Inferior 1 (process 19414) exited with code 01]
