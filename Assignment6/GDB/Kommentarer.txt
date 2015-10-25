@@ -1,0 +1,27 @@
+Kommentarer: 
+
+
+test2() -- Testing print_list
+Jeg sætter et breakpoint i print_list()'s linje 54 og 55, og konstaterer at programmet crasher fra
+linje 54 til linje 55. 
+
+Problemet: Der er ikke et check i metoden for hvorvidt argumentet NULL. 
+
+
+test(3) -- Testing nats()
+Jeg debugger vha. gdb, og sætter et breakpoint på linje 37: 	res = cons(i + 1, res);
+Jeg inspicerer - i første iteration af loopet - variablen res, og konstaterer at res peger på noget random hukommelse, istedet for nil. 
+
+Problemet: Når variablen res deklareres, sættes den ikke til NULL. 
+
+
+test(4) -- Testing free_list()
+Jeg sætter et breakpoint i free_list()'s while-loop, linje 66:  free(l);
+Jeg inspicerer - print *l - og konstaterer, at når vi træder ud af loopet, er l null. 
+Når programmet derfor efterfølgende forsøger i linje 68:	 free(l) 
+fås en segmentation fault. 
+
+
+// Facebook Infer
+Systemkaldet malloc(...) kan returnere NULL, såfremt hukommelsen ikke kan allokeres.
+Derfor bør der efter et malloc kald checkes for hvorvidt kaldet lykkedes eller ej. 
